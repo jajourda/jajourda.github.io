@@ -1,0 +1,44 @@
+{
+    "CvData":[
+        {
+            "cvId": 1,
+            "cvCat":"frontend",
+            "routeSpecific":{
+                "bannerHeading":"Web Developer",
+                "subHeading":"Modern Front-End Development with Back-End Experience"
+            }
+        },
+        {
+            "cvId": 2,
+            "cvCat": "illustrate",
+            "routeSpecific":{
+                "bannerHeading":"Illustrator/ Artist",
+                "subHeading":"Formally Trained with a Knack for Unique Subjects"
+            }
+        },
+        {
+            "cvId": 3,
+            "cvCat":"editing",
+            "routeSpecific":{
+                "bannerHeading":"Photo Editor",
+                "subHeading":"Experienced in Digitally Augmenting Photographs"
+            }
+        },
+        {
+            "cvId":4,
+            "cvCat":"projects",
+            "routeSpecific":{
+                "bannerHeading":"Web Developer",
+                "subHeading":"Deadlines and Leadership to Get the Job Done"
+            }
+        },
+        {
+            "cvId":5,
+            "cvCat":"graphics",
+            "routeSpecific":{
+                "bannerHeading":"Graphic Designer",
+                "subHeading":"Digital/Multimedia Creation of Marketing Materials"
+            }
+        }
+    ]
+}

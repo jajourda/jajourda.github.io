@@ -3,7 +3,7 @@
 describe('controllers', function(){
   var scope;
 
-  beforeEach(module('portfolioSite'));
+  beforeEach(module('jajourdagithubio'));
 
   beforeEach(inject(function($rootScope) {
   	scope = $rootScope.$new();

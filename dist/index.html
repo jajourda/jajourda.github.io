@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" ng-app="jajourdagithubio">
+  <head>
+    <meta charset="utf-8">
+    <title>Joshua Jourdain: CV</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link href='http://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/main-12cf3ddc.css">
+
+    <script src="scripts/modernizr-c1ff1650.js"></script>
+  </head>
+  <body ng-controller="MainCtrl" class="jajourda">
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    <nav class="navbar navbar-static-top navbar-inverse">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Josh CV</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+        <ul class="nav navbar-nav">
+           <li ng-class="{active: ('experience' | routeSegmentStartsWith)}">
+            <a ng-href="#{{'experience' | routeSegmentUrl}}">Experience</a>
+          </li>
+          <li ng-class="{active: ('about' | routeSegmentStartsWith)}">
+            <a ng-href="#{{ 'about' | routeSegmentUrl }}">About</a>
+          </li>
+          <li ng-class="{active: ('contact' | routeSegmentStartsWith)}">
+            <a ng-href="#{{'contact' | routeSegmentUrl}}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+     <!-- <h1>{{startsWith}}</h1> -->
+    <div id="container" app-view-segment="0"></div>
+
+
+    <hr>
+    <footer class="footer">
+      <p>With ♥ from <a href="https://twitter.com/jajourda">@jajourda</a></p>
+    </footer>
+
+
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <script src="scripts/vendor-10e2dfd2.js"></script>
+
+    <script src="scripts/main-cf105799.js"></script>
+
+  </body>
+</html>
