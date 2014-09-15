@@ -2,7 +2,7 @@
     "CvData":[
         {
             "cvId": 1,
-            "cvCat":"frontend",
+            "cvCat":"webdev",
             "routeSpecific":{
                 "bannerHeading":"Web Developer",
                 "subHeading":"Modern Front-End Development with Back-End Experience"

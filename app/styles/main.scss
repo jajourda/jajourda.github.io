@@ -4,11 +4,60 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 @import '../bower_components/responsable/scss/responsable';
 
+@import '../bower_components/compass-mixins/lib/compass';
 
+//mixins
+/*
+  Scoped Media Query Mixin - an element query workaround.
+  Accepts sets of selector/media query pairs as arguments. 
+  Enclosed styles' selectors are prefixed by each passed selector within an outputted media query block.
+  [c]2013 @micahgodbolt, @jpavon, and @filamentgroup. MIT License.
+*/
+@mixin scopedmediaquery($queries...) {
+    $length: length($queries);
+    @for $i from 1 through $length{
+        @if $i % 2 == 1 {
+            @media #{nth($queries, $i)} {
+                #{nth($queries, $i+1)} {
+                  @content;
+                }
+            }
+        }
+    }
+}
+@mixin padtb($pt, $pb:""){
+	@if $pb != ""{
+		padding-top: $pt !important;
+		padding-bottom: $pb !important;
+	}@else {
+		padding-top: $pt !important;
+		padding-bottom: $pt !important;
+	}
+}
 
+//media queries
+
+$s : 'screen and (min-width: 480px)';
+$f: 'screen and (min-width: 640px)';
+$m: 'screen and (min-width: 750px)';
+$b: 'screen and (min-width: 960px)';
 $blue: #5BC9D0;
 $pink: #F8789D;
 $dark: #333;
+$green: #81F481;
+$black: #101010;
+
+
+//** Global textual link color.
+$link-color:  $pink !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color: darken($link-color, 15%) !default;
+
+
+
+//padding
+$hp: ($padding * 0.5);
+$qp: ($hp * 0.5);
 .creep {
 	font-family: 'Creepster', sans-serif;
 } 
@@ -19,11 +68,16 @@ $dark: #333;
 	font-family: 'Raleway', sans-serif;
 }
 
+figure img{
+	width: 100%;
+}
+
 
 body{
 	@extend .raleway;
 	background: $blue;
 }
+
 
 #container{
 	@include row();
@@ -43,6 +97,22 @@ body{
   padding: 0.2em 0;
 }
 
+.jumbotron{
+	@include column(12,$hp);
+ 	@include padtb($hp);
+ 	margin-bottom: $hp;
+}
+.home-nav-wrap{
+	.home-nav-button{
+		@include column(12);
+		@media #{$f} {
+			@include column(6);
+		}
+		@media #{$b} {
+			@include column(4);
+		}
+	}
+}
 .thumbnail {
   height: 200px;
 
@@ -51,10 +121,46 @@ body{
   }
 }
 
+//carousel
+// .carousel{
+// 	@include row();
+// 	//height: 305px;
+// 	.carousel-inner{
+// 		@include column(12);
+// 		//height: inherit;
+// 	}
+// }
+
+
+.trading-card, .contact-wrap{
+	a {
+	  color: $dark;
+	  text-decoration: none;
+	  font-weight: 800;
+	  text-shadow: .15rem .15rem 0 $pink;
+	}
+	a:hover, a:focus {
+	  color: $black;
+	  text-decoration: underline;
+	}
+	a:focus {
+	  outline: none;
+	  outline: 5px auto -webkit-focus-ring-color;
+	  outline-offset: -2px;
+	}
+}
+
+
+
+
+
 .icon-nav{
-	@include column(5);
-	@include push(3.5);
-	@include pull(3.5);
+	padding: 0;
+	@media #{$m} {
+		@include column(5);
+		@include push(3.5);
+		@include pull(3.5);
+	}
 	li{
 		@include column(2.4);
 		a{
@@ -127,8 +233,284 @@ ul{
 	@extend .creep;
 	color:white;
 	text-shadow: .25rem .25rem 0 $pink, .5rem .5rem 0 $dark;
-	font-size: 6rem;
+	font-size: 3rem;
+	//font-size: 6rem;
+	@media #{$f} {
+		font-size: 4rem;
+	}
+	@media #{$m} {
+		font-size: 5rem;
+	}
+	@media #{$b} {
+		font-size: 6rem;
+	}
 }
 .jajourda h2{
 	@extend .pacifico;
+	font-size: 2rem;
+	@media #{$m} {
+		font-size: 3rem;
+	}
+}
+
+//webdev
+.example-modal-carousel{
+	.carousel{
+		.carousel-caption{
+			@include column(12);
+			position: relative;
+			left:auto;
+			right:auto;
+			bottom:auto;
+			h4{
+				color:$black;
+				text-shadow: none;
+				font-weight: 800;
+			}
+		}
+	}
+}
+.modal { 
+	top:5%; 
+	bottom:5%;
+	.modal-content{
+		overflow: hidden;
+	}
+	.modal-header{
+		background: $pink;
+		.modal-title{
+			font-size: 1.5rem;
+			font-weight: 700;
+			letter-spacing: .2rem;
+			text-transform: uppercase;
+			color:white;
+			text-shadow: .15rem .15rem 0 $blue, .3rem .3rem 0 $black;
+		}
+		h4{
+			a{
+				font-size: 1.5rem;
+				font-weight: 800;
+				
+				color:white;
+			}
+		}
+	} 
+
+	.modal-footer{
+		@extend .text-center;
+		background: $pink;
+		width:100%;
+		.close-modal{
+			@include column(12);
+			color:white;
+			border:none;
+			background: none;
+			font-weight: 800;
+		}
+	}
+} 
+.modal-body { max-height:100%; height:85%; }
+div.example-indiv.panel.panel-default{
+	@include column(11,$hp);
+	@include push(.5);
+	@include pull(.5);
+	@include padtb($padding);
+	margin-bottom: $padding;
+	position: relative;
+	overflow:hidden;
+	border:none;
+	@media #{$s} {
+		@include column(5.8);
+		@include push(.1);
+		@include pull(.1);
+		margin-top: 0;
+	}
+	@media #{$m} {
+		@include column(4);
+	}
+	@media #{$b} {
+		@include column(3);
+	}
+}
+.examples{
+
+	.panel{
+		&.panel-default{
+			
+		}
+		.click-target{
+			display: block;
+			width: 0;
+			height: 0;
+			border-bottom: 100px solid $pink;
+			border-left: 100px solid transparent;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			z-index: 2;
+			&:before{
+				content: "\2b";
+				color: white;
+				font-family: 'Glyphicons Halflings';
+				position: absolute;
+				bottom: -7rem;
+				left: -3rem;
+				display: block;
+				float: left;
+			}
+		}
+		.panel-heading{
+			display:table;
+			caption-side:bottom;
+			//@include column(12, $hp);
+			background: none;
+			height:auto;
+			@media #{$m} {
+				padding:0;
+				
+			}
+			.panel-heading-text{
+				//@include column(8);
+				display: table-cell;
+			}
+			.screenshot{
+				//@include column(4);
+				//@extend .text-center;
+				display:table-caption;
+				position: relative;
+				overflow:hidden;
+				// border: solid $hp $blue;
+				div.eye-icon{
+					//@extend .text-center;
+					position: absolute;
+					width:100%;
+					background: rgba($gray-dark, 0.65);
+					z-index: 1;
+					min-height: 600px;
+					bottom: 0;
+					&:before{
+						font-family: 'Glyphicons Halflings';
+						content: "\e015";
+						position: absolute;
+						bottom: 0;
+						font-size: 8rem;
+						left:50%;
+						margin-left:-4rem;
+						margin-top: -2.5rem;
+						color:$blue;
+						text-shadow: .3rem .3rem 0 $gray-dark;
+					}
+				}
+			}
+		}
+		.panel-collapse{
+			.panel-body{
+				box-shadow: inset 0 $hp 0 $pink, inset 0 ($hp + $qp) 0 $blue ;
+				background: $black;
+			}
+			h4.h4-keywords{
+				@include column(12);
+				@include padtb($padding);
+				@extend .pacifico;
+				color:white;
+			}
+		}
+		figure.logo-wrap{
+			// @include column(3);
+			// @include push(.5);
+			// @include pull(.5);
+			@include column(9,0);
+			@include pull(1.5);
+			@include push(1.5);
+			@include padtb($hp);
+			img{
+				width:100%;
+			}
+		}
+		.client{
+			@include column(12,0);
+			span{
+				@extend .hide;
+			}
+			h4{
+				@include column(12,0);
+				@include padtb($hp);
+				@extend .text-center;
+				font-size: 1.25rem;
+				font-weight: 800;
+				letter-spacing: .2rem;
+				text-transform: uppercase;
+				box-shadow: 0 $hp 0 $pink, 0 ($hp + $qp) 0 $blue ;
+				@media #{$b} {
+					font-size: 1.3rem;
+				}
+			}
+		}
+		.overview-label{
+			@include column(12,0);
+			@include padtb($hp);
+			color:$gray-light;
+			font-size: 1.25rem;
+			font-weight: 600;
+			letter-spacing: .1rem;
+			text-transform: uppercase;
+		}
+		blockquote{
+			@include column(12, $hp);
+			color:$gray-light;
+			font-size: 1.5rem;
+		}
+		h4{
+			display: inline;
+			@media #{$s} {
+				// color:green;
+				// font-style: italic;
+			}
+			//@include scopedmediaquery($m, '&.test') {
+			  /* breakpoint styles here */
+			//   .schedule-component {
+			//       float: left; 
+			//       width: 100%;
+			//       position:relative; 
+			//       color:red;
+			//   }
+			//   .schedule-component ul,
+			//   .schedule-component li {
+			//     list-style: none;
+			//     position: absolute;
+			//     margin: 0;
+			//     padding: 0;
+			//   }
+			// }
+		}
+	}
+	.keywords{
+		@include column(5.8,0);
+		@include push(.4);
+		&:nth-of-type(odd){
+			@include push(0);
+		}
+		&:nth-of-type(even){
+			//@include push(.2);
+		}
+		button{
+			@include column(12,0);
+			@include padtb($hp);
+			@include border-radius(.35rem);
+			@extend .raleway;
+			margin: 0 0 $hp;
+			background: $blue;
+			border:none;
+			font-size: .9rem;
+			font-weight: 800;
+			letter-spacing: .2rem;
+			text-transform: uppercase;
+		}
+	}
+	
+}//end of examples
+
+.accordion-toggle{
+	@include row();
+	cursor: pointer;
 }

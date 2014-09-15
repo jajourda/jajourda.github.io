@@ -1,0 +1,35 @@
+{
+    "WebDevData":[
+        {
+            "wdId": 1,
+            "wdClientName":"Eclipse AeroSpace, Inc.",
+            "wdUrl":"http://www.eclipse.aero",
+            "devNotes":"Redesign of the front-end, made responsive, angular and routing, backend and databases.",
+            "keywords":[
+                "html5",
+                "LESS (CSS)",
+                "Responsive",
+                "Angular JS",
+                "php",
+                "RESTful Responses",
+                "MySQL"
+            ],
+            "logo":"images/eailogoPurple.gif",
+            "screenshot":"images/screenshot.1.jpg",
+            "slides":[
+                {
+                    "image":"images/fullpage-eclipse.jpg",
+                    "text":"Desktop Layout"
+                },
+                {
+                    "image":"images/tablet-eclipse.jpg",
+                    "text":"Tablet Layout"
+                },
+                {
+                    "image":"images/phone-eclipse.jpg",
+                    "text":"Phone Layout"
+                }
+            ]
+        }
+    ]
+}

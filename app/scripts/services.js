@@ -7,7 +7,7 @@ ser.factory('CvData', function($http) {
 			if (!promise) {
 				promise = $http({
 					method: 'GET',
-					url: 'data/CvData.json',
+					url: 'src/CvData.json',
 					headers: {
 						'Content-Type': 'application/json'
 					}
@@ -18,4 +18,24 @@ ser.factory('CvData', function($http) {
 		}
 	};
 	return CvData;
+});
+
+ser.factory('WebDevData', function($http) {
+	var promise;
+	var WebDevData = {
+		async: function() {
+			if (!promise) {
+				promise = $http({
+					method: 'GET',
+					url: 'src/WebDevData.json',
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				});
+			}
+			// Return the promise to the controller
+			return promise;
+		}
+	};
+	return WebDevData;
 });

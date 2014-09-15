@@ -10,12 +10,13 @@ angular.module('jajourdagithubio', [
   'view-segment',
   'ui.bootstrap',
   'jajourda.services',
-  'jajourda.controllers'])
+  'jajourda.controllers',
+  'jajourda.directives'])
   .config(function ($routeSegmentProvider, $routeProvider) {
     var rsp = $routeSegmentProvider;
     //cv
     rsp.when('/cv', 'cv')
-      .when('/cv/frontend','cv.frontend')
+      .when('/cv/webdev','cv.webdev')
       .when('/cv/illustrate','cv.illustrate')
       .when('/cv/projects', 'cv.projects')
       .when('/cv/editing', 'cv.editing')
@@ -27,8 +28,8 @@ angular.module('jajourdagithubio', [
       cvH1: 'My CV'
     })
       .within()
-      .segment('frontend', {
-        templateUrl:'partials/views/cv/frontend.html',
+      .segment('webdev', {
+        templateUrl:'partials/views/cv/webdev.html',
         subRoute: true,
         dependencies: ['id'],
         controller: 'CvIndivCtrl'

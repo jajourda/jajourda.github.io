@@ -7,13 +7,11 @@
     <h1>Joshua Jourdain: {{routeSpecific.bannerHeading}}</h1>
     <p class="lead">
       <h2>{{routeSpecific.subHeading}}</h2>
-      <!-- <img src="images/yeoman.png" alt="I'm Yeoman"> --><br>
-      
     </p>
   </div>
 
-  <div class="row" ng-hide="cvSubShowing" >
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
+  <div class="home-nav-wrap" ng-hide="cvSubShowing" >
+    <div class="home-nav-button" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
       <a class="big-cv-link" ng-href="#{{awesomeThing.url | routeSegmentUrl}}">
       <div class="thumbnail">
         <!-- <img class="pull-right" ng-src="images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}"> -->

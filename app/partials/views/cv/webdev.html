@@ -1,0 +1,148 @@
+<!--{{currentCv}} -->
+<section class="examples web" ng-controller="WebDevCtrl as web">
+  <!-- <button ng-click="modalIsOpen = !modalIsOpen">modal is open?</button> -->
+  <accordion match-height-parent class="accordion-wrap">
+    <accordion-group ng-repeat="w in web.groups" is-disabled="modalIsOpen" class="example-indiv" match-height="test1" on-last-repeat>
+      <accordion-heading >
+      <!-- <h2>{{modalIsOpen}}</h2> -->
+        <!--template for modal-->
+        <script type="text/ng-template" id="webExample.html">
+        <div class="modal-header">
+          <h3 class="modal-title">{{exampleData.wdClientName}}</h3>
+          <h4><a ng-href="{{exampleData.wdUrl}}" title="">{{exampleData.wdUrl}}</a></h4>
+        </div>
+        <div class="modal-body">
+          <div ng-controller="ExampleCarouselCtrl" class="example-modal-carousel">
+            <div>
+              <carousel interval="myInterval" disable-ng-animate>
+                <slide ng-repeat="slide in slides" active="slide.active">
+                  <div class="carousel-caption">
+                    <!-- {{slides}} -->
+                    <h4>{{slide.text}}</h4>
+                  </div>
+                  <img ng-src="{{slide.image}}" style="margin:auto;">
+                </slide>
+              </carousel>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button class="btn btn-primary" ng-click="ok()">OK</button> -->
+          <button class="close-modal" ng-click="cancel()">Close Modal</button>
+        </div>
+        </script>
+        <figure class="screenshot" ng-controller="ExampleModalCtrl">
+          <img ng-src="{{w.screenshot}}" alt="">
+          <div class="eye-icon" ng-click="openModal(w)">
+           <!--  <span class="glyphicon glyphicon-eye-close"></span> -->
+          </div>
+        </figure>
+        <div class="panel-heading-text">
+          <div class="client">
+            <span>Client Name:</span>
+            <h4 class="test schedule-component">{{w.wdClientName}}</h4>
+          </div>
+          <div class="overview-label">overview:</div>
+        <blockquote class="blockquote schedule-component">{{w.devNotes}}</blockquote>
+        <!-- <figure class="logo-wrap"><img ng-src="{{w.logo}}" alt=""></figure> -->
+        
+        </div> <!--.panel-heading-text-->
+        <div class="click-target">
+          
+        </div>
+      </accordion-heading>
+      <h4 class="h4-keywords">Project Keywords:</h5>
+      <div class="keywords" ng-repeat="keyword in w.keywords">
+        <button>{{keyword}}</button>
+      </div>
+      <!-- <small><pre>{{w}}</pre></small> -->
+    </accordion-group>
+    <accordion-group class="example-indiv" match-height="test2">
+
+      <div class="more-coming">
+        <accordion-heading>
+          <h4>More examples coming...</h4>
+        </accordion-heading>
+      </div>
+
+    </accordion-group>
+  </accordion>
+  <!-- test -->
+</section>
+<!-- <h4 class="test schedule-component">outside of div</h4>
+<div ng-controller="AccordionDemoCtrl">
+  <p>
+  <button class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+  <button class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+  </p>
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+  <accordion close-others="oneAtATime">
+    <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+      This content is straight in the template.
+    </accordion-group>
+    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+      {{group.content}}
+    </accordion-group>
+    <accordion-group heading="Dynamic Body Content">
+      <p>The body of the accordion group grows to fit the contents</p>
+      <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+      <div ng-repeat="item in items">{{item}}</div>
+    </accordion-group>
+    <accordion-group is-open="status.open">
+      <accordion-heading>
+        I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+      </accordion-heading>
+      This is just some content to illustrate fancy headings.
+    </accordion-group>
+  </accordion>
+</div>
+<div ng-controller="ModalDemoCtrl">
+  <script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li ng-repeat="item in items">
+        <a ng-click="selected.item = item">{{ item }}</a>
+      </li>
+    </ul>
+    Selected: <b>{{ selected.item }}</b>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+  </script>
+  <button class="btn btn-default" ng-click="open()">Open me!</button>
+  <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
+  <button class="btn btn-default" ng-click="open('sm')">Small modal</button>
+  <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+</div>
+
+
+<div ng-controller="CarouselDemoCtrl">
+  <div style="height: 305px">
+    <carousel interval="myInterval" disable-ng-animate>
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+    </div>
+    <div class="col-md-6">
+      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
+      <br />Enter a negative number to stop the interval.
+    </div>
+  </div>
+</div>-->

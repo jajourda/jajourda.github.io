@@ -84,8 +84,15 @@ gulp.task('fonts', function () {
     .pipe($.size());
 });
 
+//application source files
+gulp.task('src', function(){
+  return gulp.src(['app/src/**/*'])
+    .pipe(gulp.dest('dist/src'));
+});
+
+
 gulp.task('clean', function () {
   return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.rimraf());
 });
 
-gulp.task('build', ['html', 'partials', 'images', 'fonts']);
+gulp.task('build', ['html', 'partials', 'images', 'fonts', 'src']);
