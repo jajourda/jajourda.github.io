@@ -2,8 +2,8 @@
 var con = angular.module('jajourda.controllers', []);
 
 //main controller for application
-con.controller('MainCtrl', ['$scope', '$routeSegment',
-    function($scope, $routeSegment) {
+con.controller('MainCtrl', ['$scope', '$routeSegment','LayoutService',
+    function($scope, $routeSegment, LayoutService) {
         $scope.$routeSegment = $routeSegment;
 
         $scope.isASubroute = false;
@@ -184,7 +184,11 @@ con.controller('WebDevCtrl', ['$scope', 'WebDevData',
         
         this.getWebDevData();
 
+        //this is a boolean expression that will let the accordion group know whether to disable behavior because a slider modal is open
         $scope.modalIsOpen = false;
+        //this is a boolean expression that will also let the accordion group know whether to disable behavior if the modal in question is the "more examples coming" accordion group
+        $scope.isMoreExamplesGroup = true;
+
 
         // $scope.$on('onRepeatLast',function(data){
         //     console.log('onlastrepeat data:');
@@ -354,3 +358,30 @@ con.controller('ExampleCarouselCtrl', function($scope) {
         console.log(data);
     });
 });
+
+con.controller('TechnologiesCtrl', ['$scope','Technologies', function($scope, Technologies){
+
+    $scope.getTechnologies = function(){
+        Technologies.async().then(function(d){
+            console.log('i am technologies data:');
+            console.log(d);
+            $scope.technologies = d.data.Technologies;
+        });
+    };
+    $scope.getTechnologies();
+
+    $scope.selectedTech = [];
+
+    console.log('selectedTech:');
+    console.log($scope.selectedTech);
+
+    $scope.selectTech = function(index){
+        $scope.selectedTech = index;
+        $scope.selectedTech.active = true;
+    };
+
+    $scope.clearSelectedTech = function(){
+        $scope.selectedTech = [];
+    };
+    
+}]);

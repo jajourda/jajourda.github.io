@@ -51,13 +51,28 @@
           
         </div>
       </accordion-heading>
-      <h4 class="h4-keywords">Project Keywords:</h5>
-      <div class="keywords" ng-repeat="keyword in w.keywords">
-        <button>{{keyword}}</button>
+      <div class="panel-body-div">
+        <h4 class="h4-panel-body highlights">
+          Project Highlights:
+        </h4>
+        <ul>
+          <li ng-repeat="highlight in w.highlights">
+            <p>
+              {{highlight.snippet}}
+            </p>
+          </li>
+        </ul>
       </div>
+      <div class="panel-body-div">
+        <h4 class="h4-panel-body keywords">Project Keywords:</h4>
+        <div class="keywords">
+          <button ng-repeat="keyword in w.keywords">{{keyword}}</button>
+        </div>
+      </div>
+      
       <!-- <small><pre>{{w}}</pre></small> -->
     </accordion-group>
-    <accordion-group class="example-indiv" match-height="test2">
+    <accordion-group class="example-indiv" match-height="test2" is-disabled="isMoreExamplesGroup">
 
       <div class="more-coming">
         <accordion-heading>

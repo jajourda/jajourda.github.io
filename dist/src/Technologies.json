@@ -1,0 +1,45 @@
+{
+    "Technologies": [{
+        "name": "AngularJS",
+        "url": "https://angularjs.org/",
+        "repository": "https://github.com/angular/angular.js",
+        "logo": "images/angular.png",
+        "tagline": "HTML enhanced for web apps!"
+    }, {
+        "name": "Bootstrap",
+        "url": "http://getbootstrap.com/",
+        "repository": "https://github.com/twbs/bootstrap",
+        "logo": "images/bootstrap.png",
+        "tagline": "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web."
+    }, {
+        "name": "Yeoman",
+        "url": "http://yeoman.io/",
+        "repository": "https://github.com/yeoman/yeoman",
+        "logo": "images/yeoman.png",
+        "tagline": "The web's scaffolding tool for modern webapps."
+    },{
+        "name": "GitHub",
+        "url": "https://github.com/",
+        "repository": "...they are the repository source :)",
+        "logo": "images/github.png",
+        "tagline": "GitHub is the best place to share code with friends, co-workers, classmates, and complete strangers. Over six million people use GitHub to build amazing things together."
+    }, {
+        "name": "GulpJS",
+        "url": "http://gulpjs.com/",
+        "repository": "https://github.com/gulpjs",
+        "logo": "images/gulp.png",
+        "tagline": "The streaming build system"
+    }, {
+        "name": "SASS",
+        "url": "http://sass-lang.com/",
+        "repository": "https://github.com/sass/sass",
+        "logo": "images/sass.png",
+        "tagline": "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world."
+    }, {
+        "name": "UI Bootstrap",
+        "url": "http://angular-ui.github.io/bootstrap/",
+        "repository": "https://github.com/angular-ui/bootstrap",
+        "logo": "images/angular.png",
+        "tagline": "Bootstrap components written in pure AngularJS by the AngularUI Team"
+    }]
+}

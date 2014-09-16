@@ -26,7 +26,7 @@
 
     <nav class="navbar navbar-static-top navbar-inverse">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">Josh CV</a>
+        <a class="navbar-brand" href="/#">Josh CV</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
@@ -39,6 +39,9 @@
           </li>
           <li ng-class="{active: ('contact' | routeSegmentStartsWith)}">
             <a ng-href="#{{'contact' | routeSegmentUrl}}">Contact</a>
+          </li>
+           <li ng-class="{active: ('devcv' | routeSegmentStartsWith)}">
+            <a ng-href="#{{'devcv' | routeSegmentUrl}}">This Site</a>
           </li>
         </ul>
       </div>

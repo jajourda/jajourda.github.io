@@ -1,0 +1,51 @@
+<section class="technologies-wrap" ng-controller="TechnologiesCtrl">
+	<h1>Technologies Employed</h1>
+	<p>Many thanks to the following developers for their work and many hours poured into maintaining that work faithfully.</p>
+	<ul class="technologies-nav">
+		<li ng-repeat="technology in technologies">
+			<div ng-click="selectTech(technologies[$index])">
+				<div class="link-wrap">
+					{{technology.name}} <span class="glyphicon glyphicon-plus-sign"></span>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<div class="jumbotron highlighted-technology">
+		<div ng-if="selectedTech.length === 0">
+			<h1>Select a Technology</h1>
+		</div>
+		<div ng-if="selectedTech.length !== 0" class="selected-showing">
+			<figure class="selected-tech-logo"><img ng-src="{{selectedTech.logo}}" alt=""></figure>
+			<div class="text-col">
+				<h1>{{selectedTech.name}}</h1>
+				<h2>{{selectedTech.tagline}}</h2>
+				<div class="link-indiv">
+					<span class="link-label">Website:</span>
+					<a ng-href="{{selectedTech.url}}" title="">
+						<span ng-if="layout.isState.onlySmall">
+							Go To Site
+						</span>
+						<span ng-if="layout.isState.notSmall">
+							{{selectedTech.url}}						
+						</span>
+					</a>
+				</div>
+				<div class="link-indiv">
+					<span class="link-label">Repository:</span>
+					<a ng-href="{{selectedTech.repository}}">
+						<span ng-if="layout.isState.onlySmall">
+							Go To Repository
+						</span>
+						<span ng-if="layout.isState.notSmall">
+							{{selectedTech.repository}}						
+						</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- {{selectedTech}} -->
+	</div>
+	<!-- <pre><small>
+		{{technologies}}
+	</small></pre> -->
+</section>

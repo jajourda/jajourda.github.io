@@ -97,11 +97,7 @@ body{
   padding: 0.2em 0;
 }
 
-.jumbotron{
-	@include column(12,$hp);
- 	@include padtb($hp);
- 	margin-bottom: $hp;
-}
+
 .home-nav-wrap{
 	.home-nav-button{
 		@include column(12);
@@ -130,7 +126,9 @@ body{
 // 		//height: inherit;
 // 	}
 // }
-
+p{
+	@extend .raleway;
+}
 
 .trading-card, .contact-wrap{
 	a {
@@ -173,13 +171,120 @@ body{
 	}
 }
 
-div.jumbotron{
+div.jumbotron.cv-jumbotron{
 	background:$blue;
+	@include column(12,$hp);
+ 	@include padtb($hp);
+ 	margin-bottom: $hp;
 	h1{
 		
 	}
 	h2{
 		@extend .pacifico;
+	}
+}
+ul.technologies-nav{
+	@include column(12);
+	@media #{$m} {
+		@include column(3.5);
+	}
+	@media #{$b} {
+		@include column(12);
+		
+	}
+	li{
+		@include column(12,0);
+		@include padtb($hp);
+		@media #{$s} {
+			@include column(6);
+		}
+		@media #{$m} {
+			@include column(12);
+			
+		}
+		@media #{$b} {
+			@include column(3);
+			
+		}
+		&.active{
+			background: $black;
+			color:white;
+		}
+		div{
+			font-size: 2rem;
+			font-weight: 800;
+			letter-spacing: .2rem;
+			text-transform: uppercase;
+			@media #{$m} {
+				font-size: 1.5rem;
+			}
+			@media #{$b} {
+				font-size: 2.1rem;
+				
+			}
+		}
+	}
+}
+div.jumbotron.highlighted-technology{
+	background: $pink;
+	@include border-radius(.5rem);
+	@include column(12);
+	@include padtb($padding);
+	div.selected-showing{
+		@include row();
+	}
+	@media #{$m} {
+		@include column(8.5);
+	}
+	@media #{$b} {
+		@include column(12);
+		
+	}
+	h1{
+		@include column(9.5,0);
+		@include padtb($hp);
+		color:$dark;
+		text-shadow: none;
+		margin: 0;
+		//text-shadow: .25rem .25rem 0 $blue, .5rem .5rem 0 white;
+		@media #{$f} {
+			@include column(12);
+			text-shadow: .25rem .25rem 0 $blue, .5rem .5rem 0 white;
+		}
+	}
+	h2{
+		@include column(12);
+		font-size: 1.75rem;
+		@media #{$f} {
+			font-size: 2rem;
+		}
+	}
+	.selected-tech-logo{
+		@extend .right;
+		@include column(2,0);
+		@include pull(.5);
+		@include push(.5);
+		@media #{$f} {
+			@include border-radius(50%);
+			background: white;
+			border:solid $blue 1.1rem;
+			margin-top: 2rem;
+		}
+		@media #{$b} {
+			margin-top: 1rem;
+			img{
+				padding:1rem;
+			}
+			
+		}
+	}
+	div.link-indiv{
+		@include column(12);
+	}
+	div.text-col{
+		@media #{$f} {
+			@include column(9);
+		}
 	}
 }
 
@@ -408,7 +513,7 @@ div.example-indiv.panel.panel-default{
 				box-shadow: inset 0 $hp 0 $pink, inset 0 ($hp + $qp) 0 $blue ;
 				background: $black;
 			}
-			h4.h4-keywords{
+			h4.h4-panel-body{
 				@include column(12);
 				@include padtb($padding);
 				@extend .pacifico;
@@ -484,17 +589,34 @@ div.example-indiv.panel.panel-default{
 			// }
 		}
 	}
+
+	.panel-body-div{
+		@include row();
+		p{
+			//@include column(12,0);
+			color: white;
+			font-size: 1.1rem;
+		}
+		ul{
+			@include column(12);
+			padding-left: 2rem;
+			li{
+				color:white;
+			}
+		}
+	}
 	.keywords{
-		@include column(5.8,0);
-		@include push(.4);
-		&:nth-of-type(odd){
-			@include push(0);
-		}
-		&:nth-of-type(even){
-			//@include push(.2);
-		}
+		@include column(12);
+		//background: yellow;
 		button{
-			@include column(12,0);
+			@include column(5.8,0);
+			&:nth-of-type(odd){
+				//background: green;
+			}
+			&:nth-of-type(even){
+				@include push(.4);
+				//background: red;
+			}
 			@include padtb($hp);
 			@include border-radius(.35rem);
 			@extend .raleway;
@@ -505,6 +627,8 @@ div.example-indiv.panel.panel-default{
 			font-weight: 800;
 			letter-spacing: .2rem;
 			text-transform: uppercase;
+			line-height: 1.1rem;
+			height:4rem;
 		}
 	}
 	

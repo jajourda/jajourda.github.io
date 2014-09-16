@@ -69,6 +69,11 @@ angular.module('jajourdagithubio', [
       templateUrl:'partials/views/contact.html'
     });
 
+    //this site development page
+    rsp.when('/devcv','devcv');
+    rsp.segment('devcv',{
+      templateUrl:'partials/views/devcv.html'
+    });
     $routeProvider.otherwise({
       redirectTo: '/cv'
     });

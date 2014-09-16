@@ -5,7 +5,24 @@
             "wdClientName":"Eclipse AeroSpace, Inc.",
             "wdUrl":"http://www.eclipse.aero",
             "devNotes":"Redesign of the front-end, made responsive, angular and routing, backend and databases.",
+            "highlights":[
+                {
+                    "priority":1,
+                    "snippet":"Built a data-intensive brokerage portion of the site. These pages retrieve specific product details on planes that are inventoried for brokerage."
+                },
+                {
+                    "priority":2,
+                    "snippet":"Built secure forms that capture client contact information and make them available to the enterprise."
+                },
+                {
+                    "priority":3,
+                    "snippet":"Helped to re-build the customer area of the site, including creating a customer-representative email mini-application."
+                }
+            ],
             "keywords":[
+                "Data-Intensive",
+                "forms",
+                "error-reporting",
                 "html5",
                 "LESS (CSS)",
                 "Responsive",
@@ -28,6 +45,46 @@
                 {
                     "image":"images/phone-eclipse.jpg",
                     "text":"Phone Layout"
+                }
+            ]
+        },
+         {
+            "wdId": 2,
+            "wdClientName":"MyJet.net",
+            "wdUrl":"http://www.myjet.net",
+            "devNotes":"AngularJS Front-end and routing, Front-end form sanitizing, created banner graphic",
+            "highlights":[
+                {
+                    "priority":1,
+                    "snippet":"Employed AngularJS to build front-end with app-controlled routing and templates/partials."
+                },
+                {
+                    "priority":2,
+                    "snippet":"Built a contact form that employs some Angular Front-end sanitizing, as well as back-end sanitizing on the server via php."
+                }
+            ],
+            "keywords":[
+                "Angular JS",
+                "html5",
+                "LESS (CSS)",
+                "php",
+                "forms",
+                "error-reporting"
+            ],
+            "logo":"images/eailogoPurple.gif",
+            "screenshot":"images/myjet-example-page-screenshot.jpg",
+            "slides":[
+                {
+                    "image":"images/myjet-example-page.jpg",
+                    "text":"Desktop Layout"
+                },
+                {
+                    "image":"images/myjet-form-sanitizing.jpg",
+                    "text":"Form Sanitizing Front-end"
+                },
+                {
+                    "image":"images/myjet-form-sanitizing-backend.jpg",
+                    "text":"Error Reporting from server"
                 }
             ]
         }
